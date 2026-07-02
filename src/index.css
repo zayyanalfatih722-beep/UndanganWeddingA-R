@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  
+  --color-ivory-light: #F8F5EF;
+  --color-ivory-medium: #EFE8DD;
+  --color-gold-light: #FAF7F2;
+  --color-gold-accent: #D4B06A;
+  --color-gold-dark: #A38042;
+  --color-burgundy-light: #8A374A;
+  --color-burgundy-deep: #5E1D2A;
+  --color-burgundy-dark: #4A121F;
+  --color-espresso: #1E1513;
+}
+
+/* Premium Glassmorphism Cards */
+.glass-card-premium {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(212, 176, 106, 0.28) !important;
+  box-shadow: 0 30px 60px -15px rgba(107, 35, 52, 0.12), inset 0 1px 3px rgba(255, 255, 255, 0.5) !important;
+  border-radius: 24px;
+  position: relative;
+}
+
+/* Premium Buttons */
+.btn-premium {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 15px rgba(94, 29, 42, 0.15), 0 0 0 rgba(212, 176, 106, 0) !important;
+  border: 1px solid rgba(212, 176, 106, 0.4) !important;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 12px 30px rgba(94, 29, 42, 0.3), 0 0 15px rgba(212, 176, 106, 0.45) !important;
+}
+
+.btn-premium:active {
+  transform: translateY(0.5px) scale(0.98) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F8F5EF;
+  color: #3A2B28;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4B06A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A38042;
+}
+
+.marble-bg {
+  position: relative;
+  background-color: #F8F5EF;
+}
+
+.marble-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath d='M0 20 Q 30 10, 55 45 T 100 30' fill='none' stroke='%23D4B06A' stroke-width='0.5'/%3E%3Cpath d='M0 80 Q 25 70, 50 85 T 100 60' fill='none' stroke='%23D4B06A' stroke-width='0.3'/%3E%3Cpath d='M10 0 Q 30 40, 70 20 T 90 100' fill='none' stroke='%233A2B28' stroke-width='0.2' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.beige-marble-bg {
+  position: relative;
+  background-color: #EFE8DD;
+}
+
+.beige-marble-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath d='M0 20 Q 30 10, 55 45 T 100 30' fill='none' stroke='%23D4B06A' stroke-width='0.5'/%3E%3Cpath d='M0 80 Q 25 70, 50 85 T 100 60' fill='none' stroke='%23D4B06A' stroke-width='0.3'/%3E%3Cpath d='M10 0 Q 30 40, 70 20 T 90 100' fill='none' stroke='%233A2B28' stroke-width='0.2' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A38042 0%, #D4B06A 40%, #FAF7F2 75%, #A38042 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, #A38042, #FAF7F2, #D4B06A) 1;
+}
+
+/* Cinematic Background Animations */
+@keyframes petal-fall-slow {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) translateX(120px) rotate(360deg) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petal-fall-medium {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg) rotateX(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) translateX(-150px) rotate(540deg) rotateX(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petal-fall-fast {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(80px) rotate(720deg) rotateZ(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes mist-drift {
+  0% {
+    transform: translateX(-5%) translateY(0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateX(5%) translateY(15px) scale(1.08);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(-5%) translateY(0) scale(1);
+    opacity: 0.15;
+  }
+}
+
+@keyframes bokeh-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.25;
+  }
+  33% {
+    transform: translateY(-40px) translateX(25px) scale(1.15);
+    opacity: 0.45;
+  }
+  66% {
+    transform: translateY(20px) translateX(-20px) scale(0.9);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.25;
+  }
+}
+
+@keyframes ray-shimmer {
+  0%, 100% {
+    opacity: 0.12;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 0.22;
+    transform: rotate(2deg) scale(1.03);
+  }
+}
+
+/* Custom styles for the luxury cherry blossom particles */
+.animate-petal-slow {
+  animation: petal-fall-slow 18s linear infinite;
+}
+
+.animate-petal-medium {
+  animation: petal-fall-medium 13s linear infinite;
+}
+
+.animate-petal-fast {
+  animation: petal-fall-fast 9s linear infinite;
+}
+
+.animate-mist {
+  animation: mist-drift 24s ease-in-out infinite;
+}
+
+.animate-bokeh {
+  animation: bokeh-float 15s ease-in-out infinite;
+}
+
+.animate-ray {
+  animation: ray-shimmer 12s ease-in-out infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(248, 245, 239, 0.1);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 176, 106, 0.4);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(163, 128, 66, 0.6);
+}
+
+@keyframes button-breathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(107, 35, 52, 0.15), 0 0 0 rgba(212, 176, 106, 0);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(107, 35, 52, 0.25), 0 0 12px rgba(212, 176, 106, 0.3);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    left: -150%;
+  }
+  30% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes aurora-drift-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-50px, 50px) scale(1.12);
+  }
+}
+
+@keyframes dust-drift {
+  0% {
+    transform: translateY(105vh) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-5vh) translateX(40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+    box-shadow: 0 0 0 0 rgba(212, 176, 106, 0.4);
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.8;
+    box-shadow: 0 0 14px 6px rgba(212, 176, 106, 0.15);
+  }
+}
+
+.animate-breathe {
+  animation: button-breathe 5s ease-in-out infinite;
+}
+
+.animate-shimmer-pass {
+  position: absolute;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 244, 210, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: gold-shimmer 7s infinite ease-in-out;
+}
+
+.animate-aurora-1 {
+  animation: aurora-drift-1 25s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-drift-2 30s ease-in-out infinite;
+}
+
+.animate-dust {
+  animation: dust-drift var(--dust-dur, 12s) linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+
